@@ -9,6 +9,6 @@ public class Doctor extends Profession {
         this.speciality = speciality;
     }
 
-    public DiagnosisHeal() {
+    public String diagnosisHeal() {
     }
 }
