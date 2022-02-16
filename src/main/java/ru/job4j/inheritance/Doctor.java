@@ -10,5 +10,6 @@ public class Doctor extends Profession {
     }
 
     public String diagnosisHeal() {
+        return "";
     }
 }

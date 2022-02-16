@@ -10,5 +10,6 @@ public class Dentist extends Doctor {
     }
 
     public String dentalTreatment() {
+        return "";
     }
 }

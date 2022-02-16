@@ -10,5 +10,6 @@ public class Surgeon extends Doctor {
     }
 
     public String surgery() {
+        return "";
     }
 }

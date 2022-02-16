@@ -10,5 +10,6 @@ public class Engineer extends Profession {
     }
 
     public String documentDevelopment() {
+        return "";
     }
 }
