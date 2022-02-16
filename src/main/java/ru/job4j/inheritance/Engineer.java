@@ -9,6 +9,6 @@ public class Engineer extends Profession {
         this.category = category;
     }
 
-    public DocumentDevelopment(Document document) {
+    public DocumentDevelopment() {
     }
 }

@@ -9,6 +9,6 @@ public class Programmer extends Engineer {
         this.program = program;
     }
 
-    public ProgramDevelopment(Program program) {
+    public ProgramDevelopment() {
     }
 }

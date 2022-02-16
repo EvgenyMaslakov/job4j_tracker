@@ -9,6 +9,6 @@ public class Dentist extends Doctor {
         this.teeth = teeth;
     }
 
-    public DentalTreatment(Teeth teeth) {
+    public DentalTreatment() {
     }
 }

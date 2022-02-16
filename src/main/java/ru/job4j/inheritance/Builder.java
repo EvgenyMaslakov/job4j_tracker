@@ -9,6 +9,6 @@ public class Builder extends Engineer {
         this.drawing = drawing;
     }
 
-    public DrawingDevelopment(Drawing drawing) {
+    public DrawingDevelopment() {
     }
 }
