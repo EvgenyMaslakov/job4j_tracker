@@ -40,8 +40,7 @@ public class Tracker {
                     sizes++;
                 }
             }
-        rsl = Arrays.copyOf(rsl, sizes);
-        return rsl;
+        return Arrays.copyOf(rsl, sizes);
     }
 
     public Item findById(int id) {
