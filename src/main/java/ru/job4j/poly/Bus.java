@@ -3,8 +3,7 @@ package ru.job4j.poly;
 public class Bus implements Transport {
     @Override
     public void drive() {
-        final boolean b = true;
-        boolean b;
+        boolean b = true;
     }
 
     @Override
