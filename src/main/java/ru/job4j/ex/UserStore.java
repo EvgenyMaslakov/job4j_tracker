@@ -33,7 +33,7 @@ public class UserStore {
                System.out.println("This user has an access");
            }
        } catch (UserInvalidException ei) {
-           ei.printStackTrace();
+            ei.printStackTrace();
        } catch (UserNotFoundException en) {
             en.printStackTrace();
        }
