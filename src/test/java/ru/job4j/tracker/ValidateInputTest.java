@@ -13,7 +13,7 @@ public class ValidateInputTest {
         @Test
     public void whenInvalidInput() {
         Output out = new StubOutput();
-        ArrayList<String> answers = new ArrayList<>();
+        List<String> answers = new ArrayList<>();
         answers.add("one");
         answers.add("1");
         Input in = new StubInput(answers);
@@ -25,7 +25,7 @@ public class ValidateInputTest {
     @Test
     public void whenCorrectInput() {
         Output out = new StubOutput();
-        ArrayList<String> answers = new ArrayList<>();
+        List<String> answers = new ArrayList<>();
         answers.add("1");
         Input in = new StubInput(answers);
         ValidateInput input = new ValidateInput(out, in);
@@ -36,7 +36,7 @@ public class ValidateInputTest {
     @Test
     public void whenMultipleCorrectInput() {
         Output out = new StubOutput();
-        ArrayList<String> answers = new ArrayList<>();
+        List<String> answers = new ArrayList<>();
         answers.add("1");
         answers.add("2");
         answers.add("3");
@@ -53,8 +53,8 @@ public class ValidateInputTest {
         @Test
     public void whenNegativeInput() {
         Output out = new StubOutput();
-            ArrayList<String> answers = new ArrayList<>();
-            answers.add("-1");
+        List<String> answers = new ArrayList<>();
+        answers.add("-1");
         Input in = new StubInput(answers);
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
