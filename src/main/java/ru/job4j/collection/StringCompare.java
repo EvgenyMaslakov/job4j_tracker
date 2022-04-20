@@ -7,21 +7,12 @@ public class StringCompare implements Comparator<String> {
     public int compare(String left, String right) {
         int leng = left.length() <= right.length() ? left.length() : right.length();
         int rsl = 0;
-        char li = '\u0000';
-        char ri = '\u0000';
-        for (int i = 0; i < leng - 1; i++) {
-            li = left.charAt(i);
-            ri = right.charAt(i);
-            rsl = Character.compare(li, ri);
-            if (rsl == 0) {
-                i++;
-            } else {
-                break;
+        for (int i = 0; i < leng; i++) {
+            rsl = Character.compare(left.charAt(i), right.charAt(i));
+            if (rsl != 0) {
+                return rsl;
             }
         }
-        if (rsl == 0 && left.length() != right.length()) {
-            rsl = left.length() - right.length();
-        }
-        return rsl;
+        return Integer.compare(left.length(), right.length());
     }
 }
