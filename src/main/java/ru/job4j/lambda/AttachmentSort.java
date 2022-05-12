@@ -31,18 +31,7 @@ public class AttachmentSort {
         Comparator<Attachment> comparator2 = new Comparator<Attachment>() {
             @Override
             public int compare(Attachment left, Attachment right) {
-                int leng = left.getName().length() <= right.getName().length()
-                        ? left.getName().length() : right.getName().length();
-                int rsl = 0;
-                for (int i = 0; i < leng; i++) {
-                    rsl = Character.compare(left.getName().charAt(i),
-                            right.getName().charAt(i));
-                    if (rsl != 0) {
-                        return rsl;
-                    }
-                }
-                return Integer.compare(left.getName().length(),
-                        right.getName().length());
+                return left.getName().compareTo(right.getName());
             }
         };
         attachments.sort(comparator2);
