@@ -11,7 +11,7 @@ public class MatrixToList {
     public static List<Integer> convert(Integer[][] matrix) {
         return Arrays
                 .stream(matrix)
-                .flatMap(e -> Stream.of(e))
+                .flatMap(Stream::of)
                 .collect(Collectors.toList());
     }
 }
