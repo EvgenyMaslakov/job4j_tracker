@@ -8,7 +8,7 @@ public class Dendy {
         boolean run = true;
         while (run) {
             System.out.println("Игры.");
-            System.out.println("1. Танчики");
+            System.out.println("1. ТанчикИ");
             System.out.println("2. Супер Марио");
             System.out.println("3. Выйти");
             System.out.print("Введите пункт меню, чтобы начать игру: ");
