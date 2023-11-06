@@ -1,5 +1,10 @@
 package ru.job4j.tracker;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public final class Log4File {
 
     private static Log4File instance = null;

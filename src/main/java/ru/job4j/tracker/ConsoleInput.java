@@ -2,6 +2,11 @@ package ru.job4j.tracker;
 
 import java.util.Scanner;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class ConsoleInput implements Input {
     private Scanner scanner = new Scanner(System.in);
 

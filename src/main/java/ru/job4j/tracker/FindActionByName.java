@@ -2,6 +2,11 @@ package ru.job4j.tracker;
 
 import java.util.List;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class FindActionByName implements UserAction {
     private final Output out;
 

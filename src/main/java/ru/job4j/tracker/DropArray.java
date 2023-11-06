@@ -2,6 +2,11 @@ package ru.job4j.tracker;
 
 import java.util.Arrays;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class DropArray {
     public static void main(String[] args) {
         String[] names = {"Petr", null, "Ivan", "Stepan", null};

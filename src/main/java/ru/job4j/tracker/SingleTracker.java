@@ -1,8 +1,12 @@
 package ru.job4j.tracker;
 
-import java.util.Arrays;
 import java.util.List;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public final class SingleTracker {
 
     private Tracker tracker = new Tracker();

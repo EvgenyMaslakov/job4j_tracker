@@ -1,8 +1,16 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Объект класса управляет меню.
+ * В нем используется цикл, который опрашивает пользователя о выбранном
+ * пункте меню.
+ * Если пользователь выбрал пункт "Выйти", то цикл завершается и программа
+ * закрывается.
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class StartUI {
 
     private final Output out;
@@ -11,6 +19,13 @@ public class StartUI {
         this.out = out;
     }
 
+    /**
+     * Метод инициализирует приложение и запускает выполнение различных
+     * пользовательских действий.
+     * @param input
+     * @param tracker
+     * @param actions
+     */
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
         while (run) {
@@ -25,6 +40,10 @@ public class StartUI {
         }
     }
 
+    /**
+     * Метод выводит на экран меню доступных пользовательских действий.
+     * @param actions
+     */
     private void showMenu(List<UserAction> actions) {
         out.println("Menu:");
         for (int i = 0; i < actions.size(); i++) {
@@ -32,6 +51,10 @@ public class StartUI {
         }
     }
 
+    /**
+     * Метод запускает приложение.
+     * @param args
+     */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());

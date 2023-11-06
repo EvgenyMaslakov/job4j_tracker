@@ -1,8 +1,12 @@
 package ru.job4j.tracker;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class StubInput implements Input {
 
     private List<String> answers;

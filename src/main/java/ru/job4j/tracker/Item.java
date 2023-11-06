@@ -1,17 +1,30 @@
 package ru.job4j.tracker;
 
-import ru.job4j.collection.Account;
-
 import java.time.*;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
-import java.util.Collections;
 import java.util.Objects;
 
+/**
+ * Класс описывает модель заявления
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class Item implements Comparable<Item> {
+    /**
+     * Уникальный номер заявления.
+     */
     private int id;
+    /**
+     * Название заявления.
+     */
     private String name;
+    /**
+     * Дата создания заявления.
+     */
     private LocalDateTime created = LocalDateTime.now();
+    /**
+     * Приводит дату создания заявления к виду dd-MMMM-EEEE-yyyy HH:mm:ss
+     */
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
 
     public Item() {

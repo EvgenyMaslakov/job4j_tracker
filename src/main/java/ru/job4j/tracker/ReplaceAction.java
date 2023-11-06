@@ -1,5 +1,10 @@
 package ru.job4j.tracker;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class ReplaceAction implements UserAction {
     private final Output out;
 

@@ -3,6 +3,11 @@ package ru.job4j.tracker;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
+/**
+ *
+ * @author Evgenii Maslakov
+ * @version 1.0
+ */
 public class UsagePackageDate {
 
     public static void main(String[] args) {
