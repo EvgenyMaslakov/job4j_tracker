@@ -23,8 +23,8 @@ public class StartUI {
      * Метод инициализирует приложение и запускает выполнение различных
      * пользовательских действий.
      * @param input
-     * @param tracker
-     * @param actions
+     * @param tracker хранилище заявок
+     * @param actions список возможных действий в меню
      */
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
