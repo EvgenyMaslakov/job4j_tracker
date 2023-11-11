@@ -62,7 +62,7 @@ public class StartUI {
         List<UserAction> actions = List.of(new CreateAction(output),
                 new FindAllAction(output), new ReplaceAction(output),
                 new DeleteAction(output), new FindActionById(output),
-                new FindActionByName(output), new ExitAction());
+                new FindActionByName(output), new ExitAction());6
         new StartUI(output).init(input, tracker, actions);
     }
 }
