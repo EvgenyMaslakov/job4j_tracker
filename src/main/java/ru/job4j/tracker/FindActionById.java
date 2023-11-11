@@ -11,10 +11,6 @@ public class FindActionById implements UserAction {
      */
     private final Output out;
 
-    /**
-     *
-     * @param out
-     */
     public FindActionById(Output out) {
         this.out = out;
     }

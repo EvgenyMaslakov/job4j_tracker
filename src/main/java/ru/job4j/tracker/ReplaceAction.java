@@ -11,10 +11,6 @@ public class ReplaceAction implements UserAction {
      */
     private final Output out;
 
-    /**
-     *
-     * @param out
-     */
     public ReplaceAction(Output out) {
         this.out = out;
     }

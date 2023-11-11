@@ -13,10 +13,6 @@ public class FindActionByName implements UserAction {
      */
     private final Output out;
 
-    /**
-     *
-     * @param out
-     */
     public FindActionByName(Output out) {
         this.out = out;
     }
@@ -42,7 +38,7 @@ public class FindActionByName implements UserAction {
         out.println("=== Показ заявок по имени ===");
         String name = input.askStr("Введите имя: ");
         List<Item> items = tracker.findByName(name);
-        if (items.size() > 0) {
+        if (items.isEmpty()) {
             for (Item item : items) {
                 out.println(item);
             }

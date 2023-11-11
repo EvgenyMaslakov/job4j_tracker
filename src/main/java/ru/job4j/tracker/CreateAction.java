@@ -11,10 +11,6 @@ public class CreateAction implements UserAction {
      */
     private final Output out;
 
-    /**
-     *
-     * @param out
-     */
     public CreateAction(Output out) {
         this.out = out;
     }

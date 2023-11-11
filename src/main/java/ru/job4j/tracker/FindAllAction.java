@@ -13,10 +13,6 @@ public class FindAllAction implements UserAction {
      */
     private final Output out;
 
-    /**
-     *
-     * @param out
-     */
     public FindAllAction(Output out) {
         this.out = out;
     }
@@ -41,7 +37,7 @@ public class FindAllAction implements UserAction {
     public boolean execute(Input input, Tracker tracker) {
         out.println("=== Показ всех заявок ===");
         List<Item> items = tracker.findAll();
-        if (items.size() > 0) {
+        if (items.isEmpty()) {
             for (Item item : items) {
                 out.println(item);
             }

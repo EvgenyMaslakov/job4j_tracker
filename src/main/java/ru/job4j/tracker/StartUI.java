@@ -22,7 +22,7 @@ public class StartUI {
     /**
      * Метод инициализирует приложение и запускает выполнение различных
      * пользовательских действий.
-     * @param input
+     * @param input заявка
      * @param tracker хранилище заявок
      * @param actions список возможных действий в меню
      */
@@ -42,7 +42,7 @@ public class StartUI {
 
     /**
      * Метод выводит на экран меню доступных пользовательских действий.
-     * @param actions
+     * @param actions список пунктов меню
      */
     private void showMenu(List<UserAction> actions) {
         out.println("Меню:");
@@ -53,7 +53,7 @@ public class StartUI {
 
     /**
      * Метод запускает приложение.
-     * @param args
+     * @param args входные данные
      */
     public static void main(String[] args) {
         Output output = new ConsoleOutput();

@@ -11,10 +11,6 @@ public class DeleteAction implements UserAction {
      */
     private final Output out;
 
-    /**
-     *
-     * @param out
-     */
     public DeleteAction(Output out) {
         this.out = out;
     }
