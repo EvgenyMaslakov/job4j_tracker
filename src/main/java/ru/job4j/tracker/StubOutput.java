@@ -18,7 +18,7 @@ public class StubOutput implements Output {
     @Override
     public void println(Object obj) {
         if (obj != null) {
-            buffer.append(obj.toString());
+            buffer.append(obj);
         } else {
             buffer.append("null");
         }
@@ -27,7 +27,7 @@ public class StubOutput implements Output {
 
     /**
      * Извлекает всю строку из buffer
-     * @return
+     * @return возвращает строку из buffer
      */
     @Override
     public String toString() {
