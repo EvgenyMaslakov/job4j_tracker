@@ -1,26 +1,44 @@
 package ru.job4j.tracker;
 
 /**
- *
+ * Класс описывает пункт меню "Показать заявку по id"
  * @author Evgenii Maslakov
  * @version 1.0
  */
 public class FindActionById implements UserAction {
+    /**
+     *
+     */
     private final Output out;
 
+    /**
+     *
+     * @param out
+     */
     public FindActionById(Output out) {
         this.out = out;
     }
 
+    /**
+     * Выводит название пункта меню "Показать заявку по id"
+     * @return возвращает имя меню
+     */
     @Override
     public String name() {
-        return "Find item by id";
+        return "Показать заявку по id";
     }
 
+    /**
+     * Метод описывает пункт меню "Показать заявку по id"
+     * @param input получает данные от пользователя
+     * @param tracker хранилище заявок
+     * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
+     * Если действие вернуло false, то мы считаем, что пользователь вышел из системы.
+     */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Find item by id ===");
-        int id = input.askInt("Enter id: ");
+        out.println("=== Показ заявки по id ===");
+        int id = input.askInt("Введите id: ");
         Item item = tracker.findById(id);
         if (item != null) {
             out.println(item);

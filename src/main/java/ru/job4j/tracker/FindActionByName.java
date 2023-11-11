@@ -3,26 +3,44 @@ package ru.job4j.tracker;
 import java.util.List;
 
 /**
- *
+ * Класс описывает пункт меню "Показать заявки по имени"
  * @author Evgenii Maslakov
  * @version 1.0
  */
 public class FindActionByName implements UserAction {
+    /**
+     *
+     */
     private final Output out;
 
+    /**
+     *
+     * @param out
+     */
     public FindActionByName(Output out) {
         this.out = out;
     }
 
+    /**
+     * Выводит название пункта меню "Показать заявки по имени"
+     * @return возвращает имя меню
+     */
     @Override
     public String name() {
-        return "Find items by name";
+        return "Показать заявки по имени";
     }
 
+    /**
+     * Метод описывает пункт меню "Показать заявки по имени"
+     * @param input получает данные от пользователя
+     * @param tracker хранилище заявок
+     * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
+     * Если действие вернуло false, то мы считаем, что пользователь вышел из системы.
+     */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Find items by name ===");
-        String name = input.askStr("Enter name: ");
+        out.println("=== Показ заявок по имени ===");
+        String name = input.askStr("Введите имя: ");
         List<Item> items = tracker.findByName(name);
         if (items.size() > 0) {
             for (Item item : items) {

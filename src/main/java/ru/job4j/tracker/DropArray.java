@@ -3,9 +3,7 @@ package ru.job4j.tracker;
 import java.util.Arrays;
 
 /**
- *
- * @author Evgenii Maslakov
- * @version 1.0
+ * К работе tracker не относится
  */
 public class DropArray {
     public static void main(String[] args) {

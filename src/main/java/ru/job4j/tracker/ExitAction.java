@@ -1,23 +1,29 @@
 package ru.job4j.tracker;
 
 /**
- * Интерфейс описывает пункты меню в нашем приложении
+ * Класс описывает пункт меню "Завершить программу"
  * @author Evgenii Maslakov
  * @version 1.0
  */
-public interface UserAction {
+public class ExitAction implements UserAction {
     /**
-     * Выводит название пункта меню в нашем приложении
+     * Выводит название пункта меню "Завершить программу"
      * @return возвращает имя меню
      */
-    String name();
+    @Override
+    public String name() {
+        return "Завершить программу";
+    }
 
     /**
-     * Метод описывает один из пунктов меню в нашем приложении
+     * Метод описывает пункт меню "Завершить программу"
      * @param input получает данные от пользователя
      * @param tracker хранилище заявок
      * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
      * Если действие вернуло false, то мы считаем, что пользователь вышел из системы.
      */
-    boolean execute(Input input, Tracker tracker);
+    @Override
+    public boolean execute(Input input, Tracker tracker) {
+        return false;
+    }
 }

@@ -1,11 +1,13 @@
 package ru.job4j.tracker;
 
+import java.util.List;
+
 /**
- * Класс описывает пункт меню "Изменить заявку"
+ * Класс описывает пункт меню "Показать все заявки"
  * @author Evgenii Maslakov
  * @version 1.0
  */
-public class ReplaceAction implements UserAction {
+public class FindAllAction implements UserAction {
     /**
      *
      */
@@ -15,21 +17,21 @@ public class ReplaceAction implements UserAction {
      *
      * @param out
      */
-    public ReplaceAction(Output out) {
+    public FindAllAction(Output out) {
         this.out = out;
     }
 
     /**
-     * Выводит название пункта меню "Изменить заявку"
+     * Выводит название пункта меню "Показать все заявки"
      * @return возвращает имя меню
      */
     @Override
     public String name() {
-        return "Изменить заявку";
+        return "Показать все заявки";
     }
 
     /**
-     * Метод описывает пункт меню "Изменить заявку"
+     * Метод описывает пункт меню "Показать все заявки"
      * @param input получает данные от пользователя
      * @param tracker хранилище заявок
      * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
@@ -37,14 +39,14 @@ public class ReplaceAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Изменение заявки ===");
-        int id = input.askInt("Введите id: ");
-        String name = input.askStr("Введите имя: ");
-        Item item = new Item(name);
-        if (tracker.replace(id, item)) {
-            out.println("Заявка изменена успешно.");
+        out.println("=== Показ всех заявок ===");
+        List<Item> items = tracker.findAll();
+        if (items.size() > 0) {
+            for (Item item : items) {
+                out.println(item);
+            }
         } else {
-            out.println("Ошибка замены заявки.");
+            out.println("Хранилище еще не содержит заявок");
         }
         return true;
     }
