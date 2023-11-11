@@ -9,10 +9,14 @@ import java.util.List;
  */
 public class FindAllAction implements UserAction {
     /**
-     *
+     * Объект отвечающий за вывод данных в консоль
      */
     private final Output out;
 
+    /**
+     * Конструктор принимает объект отвечающий за вывод данных в консоль
+     * @param out вывод данных в консоль
+     */
     public FindAllAction(Output out) {
         this.out = out;
     }

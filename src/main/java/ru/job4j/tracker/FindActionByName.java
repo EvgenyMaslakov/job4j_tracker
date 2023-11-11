@@ -9,10 +9,14 @@ import java.util.List;
  */
 public class FindActionByName implements UserAction {
     /**
-     *
+     * Объект отвечающий за вывод данных в консоль
      */
     private final Output out;
 
+    /**
+     * Конструктор принимает объект отвечающий за вывод данных в консоль
+     * @param out вывод данных в консоль
+     */
     public FindActionByName(Output out) {
         this.out = out;
     }

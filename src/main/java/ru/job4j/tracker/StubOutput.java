@@ -1,13 +1,20 @@
 package ru.job4j.tracker;
 
 /**
- *
+ * Класс заглушка вывода данных в консоль
  * @author Evgenii Maslakov
  * @version 1.0
  */
 public class StubOutput implements Output {
+    /**
+     * Складывает строки
+     */
     private final StringBuilder buffer = new StringBuilder();
 
+    /**
+     * Добавляет строки в buffer
+     * @param obj данные, которые выводятся на консоль
+     */
     @Override
     public void println(Object obj) {
         if (obj != null) {
@@ -18,6 +25,10 @@ public class StubOutput implements Output {
         buffer.append(System.lineSeparator());
     }
 
+    /**
+     * Извлекает всю строку из buffer
+     * @return
+     */
     @Override
     public String toString() {
         return buffer.toString();

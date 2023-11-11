@@ -7,10 +7,14 @@ package ru.job4j.tracker;
  */
 public class ReplaceAction implements UserAction {
     /**
-     *
+     * Объект отвечающий за вывод данных в консоль
      */
     private final Output out;
 
+    /**
+     * Конструктор принимает объект отвечающий за вывод данных в консоль
+     * @param out вывод данных в консоль
+     */
     public ReplaceAction(Output out) {
         this.out = out;
     }
