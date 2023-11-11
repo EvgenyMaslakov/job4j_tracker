@@ -7,9 +7,23 @@ package ru.job4j.tracker;
  */
 public class ExitAction implements UserAction {
     /**
+     * Объект отвечающий за вывод данных в консоль
+     */
+    private final Output out;
+
+    /**
      * Выводит название пункта меню "Завершить программу"
      * @return возвращает имя меню
      */
+
+    /**
+     * Конструктор принимает объект отвечающий за вывод данных в консоль
+     * @param out вывод данных в консоль
+     */
+    public ExitAction(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "Завершить программу";
@@ -24,7 +38,7 @@ public class ExitAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        System.out.println("=== Программа завершена ===");
+       out.println("=== Программа завершена ===");
         return false;
     }
 }

@@ -2,6 +2,7 @@ package ru.job4j.tracker;
 
 /**
  * Класс заглушка вывода данных в консоль
+ * Используется для тестов
  * @author Evgenii Maslakov
  * @version 1.0
  */

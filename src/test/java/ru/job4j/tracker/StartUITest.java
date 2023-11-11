@@ -23,7 +23,7 @@ public class StartUITest {
         Tracker tracker = new Tracker();
         List<UserAction> actions = new ArrayList<>();
         actions.add(new CreateAction(out));
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findAll().get(0).getName(), is("Item name"));
     }
@@ -42,7 +42,7 @@ public class StartUITest {
         Input in = new StubInput(answers);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ReplaceAction(out));
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()).getName(), is(replacedName));
     }
@@ -59,7 +59,7 @@ public class StartUITest {
         Input in = new StubInput(answers);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new DeleteAction(out));
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         assertThat(tracker.findById(item.getId()), is(nullValue()));
     }
@@ -78,7 +78,7 @@ public class StartUITest {
         Input in = new StubInput(answers);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new ReplaceAction(out));
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -90,6 +90,7 @@ public class StartUITest {
                         + "Меню:" + ln
                         + "0. Изменить заявку" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Программа завершена ===" + ln
         ));
     }
 
@@ -105,7 +106,7 @@ public class StartUITest {
         Input in = new StubInput(answers);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindAllAction(out));
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -118,6 +119,7 @@ public class StartUITest {
                         + "Меню:" + ln
                         + "0. Показать все заявки" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Программа завершена ===" + ln
         ));
     }
 
@@ -134,7 +136,7 @@ public class StartUITest {
         Input in = new StubInput(answers);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindActionById(out));
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -146,6 +148,7 @@ public class StartUITest {
                         + "Меню:" + ln
                         + "0. Показать заявку по id" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Программа завершена ===" + ln
         ));
     }
 
@@ -163,7 +166,7 @@ public class StartUITest {
         Input in = new StubInput(answers);
         List<UserAction> actions = new ArrayList<>();
         actions.add(new FindActionByName(out));
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -175,6 +178,7 @@ public class StartUITest {
                         + "Меню:" + ln
                         + "0. Показать заявки по имени" + ln
                         + "1. Завершить программу" + ln
+                        + "=== Программа завершена ===" + ln
         ));
     }
 
@@ -187,7 +191,7 @@ public class StartUITest {
         Input in = new StubInput(answers);
         Tracker tracker = new Tracker();
         List<UserAction> actions = new ArrayList<>();
-        actions.add(new ExitAction());
+        actions.add(new ExitAction(out));
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
@@ -196,6 +200,7 @@ public class StartUITest {
                                 + "Неправильный ввод, вы можете выбрать: 0 .. 0" + ln
                                 + "Меню:" + ln
                                 + "0. Завершить программу" + ln
+                                + "=== Программа завершена ===" + ln
                 )
         );
     }
