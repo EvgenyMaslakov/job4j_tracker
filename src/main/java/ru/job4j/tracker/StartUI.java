@@ -24,7 +24,7 @@ public class StartUI {
      * пользовательских действий.
      * @param input заявка
      * @param tracker хранилище заявок
-     * @param actions список возможных действий в меню
+     * @param actions список пунктов в меню
      */
     public void init(Input input, Tracker tracker, List<UserAction> actions) {
         boolean run = true;
