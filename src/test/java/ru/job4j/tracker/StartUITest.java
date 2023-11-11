@@ -82,14 +82,14 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "Menu:" + ln
-                        + "0. Edit item" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Edit item ===" + ln
+                "Меню:" + ln
+                        + "0. Изменить заявку" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Изменение заявки ===" + ln
                         + "Заявка изменена успешно." + ln
-                        + "Menu:" + ln
-                        + "0. Edit item" + ln
-                        + "1. Exit Program" + ln
+                        + "Меню:" + ln
+                        + "0. Изменить заявку" + ln
+                        + "1. Завершить программу" + ln
         ));
     }
 
@@ -109,15 +109,15 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "Menu:" + ln
-                        + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Show all items ===" + ln
+                "Меню:" + ln
+                        + "0. Показать все заявки" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Показ всех заявок ===" + ln
                         + one + ln
                         + two + ln
-                        + "Menu:" + ln
-                        + "0. Show all items" + ln
-                        + "1. Exit Program" + ln
+                        + "Меню:" + ln
+                        + "0. Показать все заявки" + ln
+                        + "1. Завершить программу" + ln
         ));
     }
 
@@ -138,14 +138,14 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "Menu:" + ln
-                        + "0. Find item by id" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Find item by id ===" + ln
+                "Меню:" + ln
+                        + "0. Показать заявку по id" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Показ заявки по id ===" + ln
                         + two + ln
-                        + "Menu:" + ln
-                        + "0. Find item by id" + ln
-                        + "1. Exit Program" + ln
+                        + "Меню:" + ln
+                        + "0. Показать заявку по id" + ln
+                        + "1. Завершить программу" + ln
         ));
     }
 
@@ -156,10 +156,9 @@ public class StartUITest {
         Item one = tracker.add(new Item("test1"));
         Item two = tracker.add(new Item("test2"));
         Item three = tracker.add(new Item("test3"));
-        String name = "test2";
-       List<String> answers = new ArrayList<>();
+        List<String> answers = new ArrayList<>();
         answers.add("0");
-        answers.add(name);
+        answers.add("test2");
         answers.add("1");
         Input in = new StubInput(answers);
         List<UserAction> actions = new ArrayList<>();
@@ -168,14 +167,14 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "Menu:" + ln
-                        + "0. Find items by name" + ln
-                        + "1. Exit Program" + ln
-                        + "=== Find items by name ===" + ln
+                "Меню:" + ln
+                        + "0. Показать заявки по имени" + ln
+                        + "1. Завершить программу" + ln
+                        + "=== Показ заявок по имени ===" + ln
                         + two + ln
-                        + "Menu:" + ln
-                        + "0. Find items by name" + ln
-                        + "1. Exit Program" + ln
+                        + "Меню:" + ln
+                        + "0. Показать заявки по имени" + ln
+                        + "1. Завершить программу" + ln
         ));
     }
 
@@ -192,11 +191,11 @@ public class StartUITest {
         new StartUI(out).init(in, tracker, actions);
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                        "Menu:" + ln
-                                + "0. Exit Program" + ln
-                                + "Wrong input, you can select: 0 .. 0" + ln
-                                + "Menu:" + ln
-                                + "0. Exit Program" + ln
+                        "Меню:" + ln
+                                + "0. Завершить программу" + ln
+                                + "Неправильный ввод, вы можете выбрать: 0 .. 0" + ln
+                                + "Меню:" + ln
+                                + "0. Завершить программу" + ln
                 )
         );
     }

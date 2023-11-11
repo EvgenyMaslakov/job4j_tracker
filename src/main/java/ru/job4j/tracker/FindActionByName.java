@@ -38,7 +38,7 @@ public class FindActionByName implements UserAction {
         out.println("=== Показ заявок по имени ===");
         String name = input.askStr("Введите имя: ");
         List<Item> items = tracker.findByName(name);
-        if (items.isEmpty()) {
+        if (!items.isEmpty()) {
             for (Item item : items) {
                 out.println(item);
             }
