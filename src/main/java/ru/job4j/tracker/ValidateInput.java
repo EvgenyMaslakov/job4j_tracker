@@ -1,31 +1,45 @@
 package ru.job4j.tracker;
 
 /**
- * Определять работу класса по получению данных от пользователя в консоли включая валидацию.
+ * Класс добавляет поведение валидации в вводу данных с клавиатуры или из заготовленного списка
  * @author Evgenii Maslakov
  * @version 1.0
  */
 public class ValidateInput implements Input {
+    /**
+     * Объект отвечающий за вывод данных в консоль
+     */
     private final Output out;
-    private final Input in;
 
+    /**
+     * Объект определяет источник данных
+     * С клавиатуры или из заготовленного списка
+     */
+    private final Input input;
+
+    /**
+     * Конструктор определяет каким образом будут вводиться данные.
+     * С клавиатуры или из заготовленного списка
+     * @param out вывод данных в консоль
+     * @param input реализация ввода данных с клавиатуры или из заготовленного списка
+     */
     public ValidateInput(Output out, Input input) {
         this.out = out;
-        this.in = input;
+        this.input = input;
     }
 
     /**
-     * Возвращает введенную строку от пользователя, включая валидацию
+     * Возвращает введенную строку
      * @param question сообщение, которое выводится пользователю перед его вводом
      * @return Возвращает введенную строку от пользователя.
      */
     @Override
     public String askStr(String question) {
-        return in.askStr(question);
+        return input.askStr(question);
     }
 
     /**
-     * Возвращать от пользователя число, а не строку, включая валидацию
+     * Возвращать число, а не строку, включая валидацию
      * @param question сообщение, которое выводится пользователю перед его вводом
      * @return Возвращать от пользователя число, а не строку
      */
@@ -35,7 +49,7 @@ public class ValidateInput implements Input {
         int value = -1;
         do {
             try {
-                value = in.askInt(question);
+                value = input.askInt(question);
                 invalid = false;
             } catch (NumberFormatException nfe) {
                 out.println("Пожалуйста, введите данные для подтверждения еще раз.");
