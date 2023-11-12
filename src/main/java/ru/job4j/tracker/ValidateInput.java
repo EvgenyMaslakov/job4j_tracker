@@ -1,7 +1,7 @@
 package ru.job4j.tracker;
 
 /**
- *
+ * Определять работу класса по получению данных от пользователя в консоли включая валидацию.
  * @author Evgenii Maslakov
  * @version 1.0
  */
@@ -14,11 +14,21 @@ public class ValidateInput implements Input {
         this.in = input;
     }
 
+    /**
+     * Возвращает введенную строку от пользователя, включая валидацию
+     * @param question сообщение, которое выводится пользователю перед его вводом
+     * @return Возвращает введенную строку от пользователя.
+     */
     @Override
     public String askStr(String question) {
         return in.askStr(question);
     }
 
+    /**
+     * Возвращать от пользователя число, а не строку, включая валидацию
+     * @param question сообщение, которое выводится пользователю перед его вводом
+     * @return Возвращать от пользователя число, а не строку
+     */
     @Override
     public int askInt(String question) {
         boolean invalid = true;
