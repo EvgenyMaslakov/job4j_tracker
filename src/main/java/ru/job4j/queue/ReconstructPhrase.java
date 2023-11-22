@@ -53,7 +53,7 @@ public class ReconstructPhrase {
     private String getDescendingElements() {
         StringBuilder rsl = new StringBuilder();
         int startSize = descendingElements.size();
-        for (int i = startSize - 1; i >= 0; i--) {
+        for (int i = 0; i < startSize; i++) {
             rsl.append(descendingElements.pollLast());
         }
         return rsl.toString();
