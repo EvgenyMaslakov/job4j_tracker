@@ -15,7 +15,22 @@ public class AnalyzeByMap {
      * @return возвращает общий средний балл
      */
     public static double averageScore(List<Pupil> pupils) {
-        return 0D;
+        double rsl = 0;
+        Map<String, Integer> subjectScore = new HashMap<>();
+        for (Pupil pupil : pupils) {
+            for (Subject subject : pupil.subjects()) {
+                if (subjectScore.containsKey(subject.name())) {
+                    int score = subjectScore.get(subject.name());
+                    subjectScore.put(subject.name(), score + subject.score());
+                } else {
+                    subjectScore.put(subject.name(), subject.score());
+                }
+            }
+        }
+        for (String subject: subjectScore.keySet()) {
+            rsl += subjectScore.get(subject);
+        }
+        return rsl / subjectScore.size() / pupils.size();
     }
 
     /**
@@ -29,6 +44,7 @@ public class AnalyzeByMap {
      * @return возвращает список из объектов Label (имя ученика и средний балл)
      */
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
+
         return List.of();
     }
 
