@@ -44,8 +44,15 @@ public class AnalyzeByMap {
      * @return возвращает список из объектов Label (имя ученика и средний балл)
      */
     public static List<Label> averageScoreByPupil(List<Pupil> pupils) {
-
-        return List.of();
+        List<Label> rsl = new ArrayList<>();
+        for (Pupil pupil : pupils) {
+            int score = 0;
+            for (Subject subject : pupil.subjects()) {
+                score += subject.score();
+            }
+            rsl.add(new Label(pupil.name(), score / pupil.subjects().size()));
+        }
+        return rsl;
     }
 
     /**
