@@ -71,7 +71,6 @@ class AnalyzeByMapTest {
         ));
     }
 
-    @Disabled
     @Test
     public void whenListOfSubjectAverage() {
         List<Label> average = AnalyzeByMap.averageScoreBySubject(
@@ -106,7 +105,6 @@ class AnalyzeByMapTest {
         ));
     }
 
-    @Disabled
     @Test
     public void whenBestPupil() {
         Label best = AnalyzeByMap.bestStudent(
@@ -137,7 +135,6 @@ class AnalyzeByMapTest {
         assertThat(best).isEqualTo(new Label("Ivanov", 240D));
     }
 
-    @Disabled
     @Test
     public void whenBestSubject() {
         Label best = AnalyzeByMap.bestSubject(

@@ -27,8 +27,8 @@ public class AnalyzeByMap {
                 }
             }
         }
-        for (String subject: subjectScore.keySet()) {
-            rsl += subjectScore.get(subject);
+        for (String subjectName: subjectScore.keySet()) {
+            rsl += subjectScore.get(subjectName);
         }
         return rsl / subjectScore.size() / pupils.size();
     }
@@ -70,6 +70,20 @@ public class AnalyzeByMap {
      */
     public static List<Label> averageScoreBySubject(List<Pupil> pupils) {
         List<Label> rsl = new ArrayList<>();
+        Map<String, Integer> scoreSubject = new LinkedHashMap<>();
+        for (Pupil pupil : pupils) {
+            for (Subject subject : pupil.subjects()) {
+                if (scoreSubject.containsKey(subject.name())) {
+                    int score = scoreSubject.get(subject.name());
+                    scoreSubject.put(subject.name(), score + subject.score());
+                } else {
+                    scoreSubject.put(subject.name(), subject.score());
+                }
+            }
+        }
+        for (String subjectName : scoreSubject.keySet()) {
+            rsl.add(new Label(subjectName, scoreSubject.get(subjectName) / pupils.size()));
+        }
         return rsl;
     }
 
@@ -84,7 +98,19 @@ public class AnalyzeByMap {
      * @return возвращает объект Label (имя ученика и суммарный балл)
      */
     public static Label bestStudent(List<Pupil> pupils) {
-        return null;
+        String bestStudentName = "";
+        int bestScoreSum = 0;
+        for (Pupil pupil : pupils) {
+            int sum = 0;
+            for (Subject subject : pupil.subjects()) {
+                sum += subject.score();
+            }
+            if (sum > bestScoreSum) {
+                bestScoreSum = sum;
+                bestStudentName = pupil.name();
+            }
+        }
+        return new Label(bestStudentName, bestScoreSum);
     }
 
     /**
@@ -97,6 +123,22 @@ public class AnalyzeByMap {
      * @return возвращает объект Label (имя предмета, сумма баллов каждого ученика по этому предмету).
      */
     public static Label bestSubject(List<Pupil> pupils) {
-        return null;
+        List<Label> labels = new LinkedList<>();
+        Map<String, Integer> scoreSubject = new LinkedHashMap<>();
+        for (Pupil pupil : pupils) {
+            for (Subject subject : pupil.subjects()) {
+                if (scoreSubject.containsKey(subject.name())) {
+                    int score = scoreSubject.get(subject.name());
+                    scoreSubject.put(subject.name(), score + subject.score());
+                } else {
+                    scoreSubject.put(subject.name(), subject.score());
+                }
+            }
+        }
+        for (String subjectName : scoreSubject.keySet()) {
+            labels.add(new Label(subjectName, scoreSubject.get(subjectName)));
+        }
+        labels.sort(Comparator.naturalOrder());
+        return labels.get(labels.size() - 1);
     }
 }
