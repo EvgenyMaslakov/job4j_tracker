@@ -19,12 +19,7 @@ public class AnalyzeByMap {
         Map<String, Integer> subjectScore = new HashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                if (subjectScore.containsKey(subject.name())) {
-                    int score = subjectScore.get(subject.name());
-                    subjectScore.put(subject.name(), score + subject.score());
-                } else {
-                    subjectScore.put(subject.name(), subject.score());
-                }
+                subjectScore.put(subject.name(), subjectScore.getOrDefault(subject.name(), 0) + subject.score());
             }
         }
         for (String subjectName: subjectScore.keySet()) {
@@ -73,12 +68,7 @@ public class AnalyzeByMap {
         Map<String, Integer> scoreSubject = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                if (scoreSubject.containsKey(subject.name())) {
-                    int score = scoreSubject.get(subject.name());
-                    scoreSubject.put(subject.name(), score + subject.score());
-                } else {
-                    scoreSubject.put(subject.name(), subject.score());
-                }
+                scoreSubject.put(subject.name(), scoreSubject.getOrDefault(subject.name(), 0) + subject.score());
             }
         }
         for (String subjectName : scoreSubject.keySet()) {
@@ -127,12 +117,8 @@ public class AnalyzeByMap {
         Map<String, Integer> scoreSubject = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                if (scoreSubject.containsKey(subject.name())) {
-                    int score = scoreSubject.get(subject.name());
-                    scoreSubject.put(subject.name(), score + subject.score());
-                } else {
-                    scoreSubject.put(subject.name(), subject.score());
-                }
+                scoreSubject.put(subject.name(), scoreSubject.getOrDefault(subject.name(), 0) + subject.score());
+
             }
         }
         for (String subjectName : scoreSubject.keySet()) {
