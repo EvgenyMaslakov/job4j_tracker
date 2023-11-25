@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Comparator;
 
 /**
- *
+ * Компаратор, который сортирует данные по убыванию имени
  * @author Evgenii Maslakov
  * @version 1.0
  */
