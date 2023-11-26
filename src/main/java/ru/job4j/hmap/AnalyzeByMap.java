@@ -16,16 +16,14 @@ public class AnalyzeByMap {
      */
     public static double averageScore(List<Pupil> pupils) {
         double rsl = 0;
-        Map<String, Integer> subjectScore = new HashMap<>();
+        int count = 0;
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                subjectScore.put(subject.name(), subjectScore.getOrDefault(subject.name(), 0) + subject.score());
+                count++;
+                rsl += subject.score();
             }
         }
-        for (String subjectName: subjectScore.keySet()) {
-            rsl += subjectScore.get(subjectName);
-        }
-        return rsl / subjectScore.size() / pupils.size();
+        return rsl / count;
     }
 
     /**
