@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Scanner;
 
 /**
- * Определять работу класса по получению данных от пользователя в консоли.
+ * Определяет работу класса по получению данных от пользователя в консоли.
  * @author Evgenii Maslakov
  * @version 1.0
  */
