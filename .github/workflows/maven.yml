@@ -6,10 +6,13 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: GitHub Action
+name: Java CI with Maven
 
 on:
   push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 jobs:
   build:
