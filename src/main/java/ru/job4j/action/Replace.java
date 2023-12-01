@@ -1,11 +1,16 @@
-package ru.job4j.tracker;
+package ru.job4j.action;
+
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Output;
+import ru.job4j.tracker.Tracker;
 
 /**
- * Класс описывает пункт меню "Показать заявку по id"
+ * Класс описывает пункт меню "Изменить заявку"
  * @author Evgenii Maslakov
  * @version 1.0
  */
-public class FindActionById implements UserAction {
+public class Replace implements UserAction {
     /**
      * Объект отвечающий за вывод данных в консоль
      */
@@ -15,21 +20,21 @@ public class FindActionById implements UserAction {
      * Конструктор принимает объект отвечающий за вывод данных в консоль
      * @param out вывод данных в консоль
      */
-    public FindActionById(Output out) {
+    public Replace(Output out) {
         this.out = out;
     }
 
     /**
-     * Выводит название пункта меню "Показать заявку по id"
+     * Выводит название пункта меню "Изменить заявку"
      * @return возвращает имя меню
      */
     @Override
     public String name() {
-        return "Показать заявку по id";
+        return "Изменить заявку";
     }
 
     /**
-     * Метод описывает пункт меню "Показать заявку по id"
+     * Метод описывает пункт меню "Изменить заявку"
      * @param input получает данные от пользователя
      * @param tracker хранилище заявок
      * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
@@ -37,13 +42,14 @@ public class FindActionById implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Показ заявки по id ===");
+        out.println("=== Изменение заявки ===");
         int id = input.askInt("Введите id: ");
-        Item item = tracker.findById(id);
-        if (item != null) {
-            out.println(item);
+        String name = input.askStr("Введите имя: ");
+        Item item = new Item(name);
+        if (tracker.replace(id, item)) {
+            out.println("Заявка изменена успешно.");
         } else {
-            out.println("Заявка с введенным id: " + id + " не найдена.");
+            out.println("Ошибка замены заявки.");
         }
         return true;
     }

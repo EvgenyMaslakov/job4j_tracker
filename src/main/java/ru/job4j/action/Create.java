@@ -1,13 +1,16 @@
-package ru.job4j.tracker;
+package ru.job4j.action;
 
-import java.util.List;
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Output;
+import ru.job4j.tracker.Tracker;
 
 /**
- * Класс описывает пункт меню "Показать все заявки"
+ * Класс описывает пункт меню "Добавить новую заявку"
  * @author Evgenii Maslakov
  * @version 1.0
  */
-public class FindAllAction implements UserAction {
+public class Create implements UserAction {
     /**
      * Объект отвечающий за вывод данных в консоль
      */
@@ -17,21 +20,21 @@ public class FindAllAction implements UserAction {
      * Конструктор принимает объект отвечающий за вывод данных в консоль
      * @param out вывод данных в консоль
      */
-    public FindAllAction(Output out) {
+    public Create(Output out) {
         this.out = out;
     }
 
     /**
-     * Выводит название пункта меню "Показать все заявки"
+     * Выводит название пункта меню "Добавить новую заявку"
      * @return возвращает имя меню
      */
     @Override
     public String name() {
-        return "Показать все заявки";
+        return "Добавить новую заявку";
     }
 
     /**
-     * Метод описывает пункт меню "Показать все заявки"
+     * Метод описывает пункт меню "Добавить новую заявку"
      * @param input получает данные от пользователя
      * @param tracker хранилище заявок
      * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
@@ -39,15 +42,11 @@ public class FindAllAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Показ всех заявок ===");
-        List<Item> items = tracker.findAll();
-        if (!items.isEmpty()) {
-            for (Item item : items) {
-                out.println(item);
-            }
-        } else {
-            out.println("Хранилище еще не содержит заявок");
-        }
+        out.println("=== Создание новой заявки ===");
+        String name = input.askStr("Введите имя: ");
+        Item item = new Item(name);
+        tracker.add(item);
+        System.out.println("Добавленная заявка: " + item);
         return true;
     }
 }

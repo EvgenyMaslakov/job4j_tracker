@@ -1,11 +1,18 @@
-package ru.job4j.tracker;
+package ru.job4j.action;
+
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Output;
+import ru.job4j.tracker.Tracker;
+
+import java.util.List;
 
 /**
- * Класс описывает пункт меню "Изменить заявку"
+ * Класс описывает пункт меню "Показать заявки по имени"
  * @author Evgenii Maslakov
  * @version 1.0
  */
-public class ReplaceAction implements UserAction {
+public class FindByName implements UserAction {
     /**
      * Объект отвечающий за вывод данных в консоль
      */
@@ -15,21 +22,21 @@ public class ReplaceAction implements UserAction {
      * Конструктор принимает объект отвечающий за вывод данных в консоль
      * @param out вывод данных в консоль
      */
-    public ReplaceAction(Output out) {
+    public FindByName(Output out) {
         this.out = out;
     }
 
     /**
-     * Выводит название пункта меню "Изменить заявку"
+     * Выводит название пункта меню "Показать заявки по имени"
      * @return возвращает имя меню
      */
     @Override
     public String name() {
-        return "Изменить заявку";
+        return "Показать заявки по имени";
     }
 
     /**
-     * Метод описывает пункт меню "Изменить заявку"
+     * Метод описывает пункт меню "Показать заявки по имени"
      * @param input получает данные от пользователя
      * @param tracker хранилище заявок
      * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
@@ -37,14 +44,15 @@ public class ReplaceAction implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Изменение заявки ===");
-        int id = input.askInt("Введите id: ");
+        out.println("=== Показ заявок по имени ===");
         String name = input.askStr("Введите имя: ");
-        Item item = new Item(name);
-        if (tracker.replace(id, item)) {
-            out.println("Заявка изменена успешно.");
+        List<Item> items = tracker.findByName(name);
+        if (!items.isEmpty()) {
+            for (Item item : items) {
+                out.println(item);
+            }
         } else {
-            out.println("Ошибка замены заявки.");
+            out.println("Заявки с именем: " + name + " не найдены.");
         }
         return true;
     }

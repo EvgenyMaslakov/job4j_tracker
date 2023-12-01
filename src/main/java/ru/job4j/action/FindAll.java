@@ -1,13 +1,18 @@
-package ru.job4j.tracker;
+package ru.job4j.action;
+
+import ru.job4j.tracker.Input;
+import ru.job4j.tracker.Item;
+import ru.job4j.tracker.Output;
+import ru.job4j.tracker.Tracker;
 
 import java.util.List;
 
 /**
- * Класс описывает пункт меню "Показать заявки по имени"
+ * Класс описывает пункт меню "Показать все заявки"
  * @author Evgenii Maslakov
  * @version 1.0
  */
-public class FindActionByName implements UserAction {
+public class FindAll implements UserAction {
     /**
      * Объект отвечающий за вывод данных в консоль
      */
@@ -17,21 +22,21 @@ public class FindActionByName implements UserAction {
      * Конструктор принимает объект отвечающий за вывод данных в консоль
      * @param out вывод данных в консоль
      */
-    public FindActionByName(Output out) {
+    public FindAll(Output out) {
         this.out = out;
     }
 
     /**
-     * Выводит название пункта меню "Показать заявки по имени"
+     * Выводит название пункта меню "Показать все заявки"
      * @return возвращает имя меню
      */
     @Override
     public String name() {
-        return "Показать заявки по имени";
+        return "Показать все заявки";
     }
 
     /**
-     * Метод описывает пункт меню "Показать заявки по имени"
+     * Метод описывает пункт меню "Показать все заявки"
      * @param input получает данные от пользователя
      * @param tracker хранилище заявок
      * @return возвращает boolean переменную, чтобы создать действия выхода из программы.
@@ -39,15 +44,14 @@ public class FindActionByName implements UserAction {
      */
     @Override
     public boolean execute(Input input, Tracker tracker) {
-        out.println("=== Показ заявок по имени ===");
-        String name = input.askStr("Введите имя: ");
-        List<Item> items = tracker.findByName(name);
+        out.println("=== Показ всех заявок ===");
+        List<Item> items = tracker.findAll();
         if (!items.isEmpty()) {
             for (Item item : items) {
                 out.println(item);
             }
         } else {
-            out.println("Заявки с именем: " + name + " не найдены.");
+            out.println("Хранилище еще не содержит заявок");
         }
         return true;
     }
