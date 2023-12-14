@@ -1,4 +1,4 @@
-package ru.job4j.hmap;
+package ru.job4j.hashmap;
 
 /**
  * Класс Subject описывает школьный предмет и аттестационный балл ученика.

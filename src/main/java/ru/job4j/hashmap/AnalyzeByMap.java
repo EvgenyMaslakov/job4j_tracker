@@ -1,4 +1,4 @@
-package ru.job4j.hmap;
+package ru.job4j.hashmap;
 
 import java.util.*;
 
@@ -66,7 +66,7 @@ public class AnalyzeByMap {
         Map<String, Integer> scoreSubject = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                scoreSubject.put(subject.name(), scoreSubject.getOrDefault(subject.name(), 0) + subject.score());
+                scoreSubject.merge(subject.name(), subject.score(), (oldValue, newValue) -> oldValue + newValue);
             }
         }
         for (String subjectName : scoreSubject.keySet()) {
@@ -115,8 +115,7 @@ public class AnalyzeByMap {
         Map<String, Integer> scoreSubject = new LinkedHashMap<>();
         for (Pupil pupil : pupils) {
             for (Subject subject : pupil.subjects()) {
-                scoreSubject.put(subject.name(), scoreSubject.getOrDefault(subject.name(), 0) + subject.score());
-
+                scoreSubject.merge(subject.name(), subject.score(), (oldValue, newValue) -> oldValue + newValue);
             }
         }
         for (String subjectName : scoreSubject.keySet()) {
